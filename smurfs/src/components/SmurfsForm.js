@@ -1,14 +1,57 @@
 import React, { useContext, useState } from "react";
 import SmurfsContext from "./contexts/SmurfsContext";
 
-export default function SmurfsForm() {
+function SmurfsForm() {
   const { postRequest } = useContext(SmurfsContext);
-  const [smurfForm, setSmurfForm] = useState({ name: "", age: "", Height: "" });
+  const [smurfForm, setSmurfForm] = useState({ name: "", age: 0, height: "" });
 
   console.log(postRequest);
+
+  const changeHandler = (e) => {
+      console.log(e)
+    setSmurfForm({...smurfForm, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = e => {
+      e.preventDefault();
+      postRequest(smurfForm)
+    e.target.reset()
+  }
+
   return (
-    <div>
-      <h1>form</h1>
-    </div>
+    <form  onSubmit={submitHandler}> 
+      <label>
+        <input
+          type="text"
+          name="name"
+         // value={smurfForm}
+          placeholder="name"
+          onChange={changeHandler}
+        /> 
+      </label>
+      <label>
+        <input
+          type="text"
+          name="age"
+         // value={smurfForm}
+          placeholder="age"
+          onChange={changeHandler}
+        /> 
+      </label>
+      <label>
+        <input
+          type="text"
+          name="height"
+          //value={smurfForm}
+          placeholder="height"
+          onChange={changeHandler}
+        /> 
+      </label>
+
+      <button type="submit">Add Smurf</button>
+    </form>
   );
 }
+
+
+export default SmurfsForm;
