@@ -5,10 +5,10 @@ function SmurfsForm() {
   const { postRequest } = useContext(SmurfsContext);
   const [smurfForm, setSmurfForm] = useState({ name: "", age: "", height: "" });
 
-  console.log(postRequest);
+  //console.log(postRequest);
 
   const changeHandler = (e) => {
-      console.log(e)
+      //console.log(e)
     setSmurfForm({...smurfForm, [e.target.name]: e.target.value });
   };
 
@@ -47,8 +47,9 @@ function SmurfsForm() {
           onChange={changeHandler}
         /> 
       </label>
-
+      <label>
       <button type="submit">Add Smurf</button>
+       </label>
     </form>
   );
 }

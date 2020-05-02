@@ -23,7 +23,7 @@ const App = () => {
     axios
       .post("http://localhost:3333/smurfs", item)
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.res));
   };
 
   //console.log(smurfs)
