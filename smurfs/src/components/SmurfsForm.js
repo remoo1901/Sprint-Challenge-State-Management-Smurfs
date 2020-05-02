@@ -3,7 +3,7 @@ import SmurfsContext from "./contexts/SmurfsContext";
 
 function SmurfsForm() {
   const { postRequest } = useContext(SmurfsContext);
-  const [smurfForm, setSmurfForm] = useState({ name: "", age: 0, height: "" });
+  const [smurfForm, setSmurfForm] = useState({ name: "", age: "", height: "" });
 
   console.log(postRequest);
 
@@ -31,18 +31,18 @@ function SmurfsForm() {
       </label>
       <label>
         <input
-          type="text"
+          type="number"
           name="age"
-         // value={smurfForm}
+        // value={smurfForm}
           placeholder="age"
           onChange={changeHandler}
         /> 
       </label>
       <label>
         <input
-          type="text"
+          type="number"
           name="height"
-          //value={smurfForm}
+         // value={smurfForm}
           placeholder="height"
           onChange={changeHandler}
         /> 
