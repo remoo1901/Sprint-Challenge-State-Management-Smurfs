@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import "./App.css";
 
+//Components
+
+import SmurfsForm from "../components/SmurfsForm.js";
+import SmurfsList from "../components/SmurfsList.js";
+
 const App = () => {
-  const [smurfs, setSmurfs] = (useState = []);
+  const [smurfs, setSmurfs] = useState([]);
 
   useEffect(() => {
     axios
@@ -11,6 +17,15 @@ const App = () => {
       .then((res) => setSmurfs(res.data))
       .catch((err) => console.log("ERROR, err"));
   }, []);
+
+  const postRequest = (item) => {
+    axios
+      .post("http://localhost:3333/smurfs", item)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  console.log(smurfs)
 
   return (
     <div className="App">
