@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from "react";
+import SmurfsContext from "./contexts/SmurfsContext";
 
-export default function SmurfsList() {
-    return (
-        <div>
-            <h1>list</h1>
+function SmurfsList() {
+  const { smurfs } = useContext(SmurfsContext);
+  //console.log(smurfs);
+  return (
+    <div>
+      {smurfs.map((x) => (
+        <div key={x.id}>
+          name: {x.name}, age: {x.age}, height: {x.height}
         </div>
-    )
+      ))}
+    </div>
+  );
 }
+
+export default SmurfsList;
